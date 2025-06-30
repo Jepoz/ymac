@@ -1,0 +1,25 @@
+@import '../../styles/variables';
+
+.homePage {
+    min-height: 90vh;
+}
+
+.sectionContainer{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;        
+    
+}
+
+.firstSection{
+    background-color: var(--primary);
+}
+
+.secondSection {
+    background-color: var(--secondary);
+}
+
+.thirdSection {
+    background-color: var(--disabled);
+}

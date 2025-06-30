@@ -1,0 +1,308 @@
+@import './variables';
+// @import 'theme';
+
+/* Reset y estilos base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: var(--text);
+  background-color: var(--background);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: var(--primary-dark);
+  }
+}
+
+/* Tipografía responsive */
+h1 { font-size: 3.2rem; }
+h2 { font-size: 2.4rem; }
+h3 { font-size: 2rem; }
+
+@media (max-width: 768px) {
+  h1 { font-size: 2.8rem; }
+  h2 { font-size: 2.2rem; }
+}
+
+/* Clases utilitarias */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+//Text
+.text-center { text-align: center; }
+
+// Inputs
+.inputGroup {
+  margin-bottom: 2rem;
+
+  label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  input, textarea, select {
+    width: 100%;    
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    background-color: var(--background-secondary) !important;
+    color: var(--text);
+    transition: all 0.3s ease;    
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;            
+    outline: none;    
+
+    &:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.1);
+    }
+  }
+
+  textarea {
+    min-height: 15rem;  
+    resize: vertical;
+  }
+}
+
+//buttons
+.btn {
+  max-width: 25rem;
+}
+
+
+//Cards
+.card {
+  background: var(--background-secondary);
+  border-radius: 0.8rem;
+  padding: 2.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+}
+
+
+//General
+.pageContainer {
+  min-height: 90vh;
+}
+
+.flex-row{
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column{
+  display: flex;
+  flex-direction: column;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+//spacing
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.py-3 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.py-4 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.py-5 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+
+}
+
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.px-3 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.px-4 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.px-5 {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.pr-1 {
+  padding-right: 0.25rem;  
+
+}
+
+.pr-2 {
+  padding-right: 0.5rem;  
+}
+
+.pr-3 {
+  padding-right: 1rem;  
+}
+
+.pr-4 {
+  padding-right: 1.5rem;  
+}
+
+.pr-5 {
+  padding-right: 3rem;  
+}
+
+
+.my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+
+}
+
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.my-3 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.my-4 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.my-5 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.mx-1 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+
+}
+
+.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.mx-3 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.mx-4 {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.mx-5 {
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+.mr-1 {
+  margin-right: 0.25rem;  
+
+}
+
+.mr-2 {
+  margin-right: 0.5rem;  
+}
+
+.mr-3 {
+  margin-right: 1rem;  
+}
+
+.mr-4 {
+  margin-right: 1.5rem;  
+}
+
+.mr-5 {
+  margin-right: 3rem;  
+}
+
+
+//effects
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scrollReveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.revealed {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+
+

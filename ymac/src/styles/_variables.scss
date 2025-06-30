@@ -1,0 +1,49 @@
+// Mapa de colores mejorado
+$colors: (
+  light: (
+    primary: #2563eb,
+    primary-dark: #1e40af,
+    primary-light: #3b82f6,
+    secondary: #f59e0b,
+    background: #ffffff,
+    background-secondary: #f3f4f6,
+    text: #111827,
+    text-secondary: #6b7280,
+    border: #e5e7eb,
+    disabled: #9ca3af, // Nuevo
+    error: #dc2626,
+    success: #16a34a
+  ),
+  dark: (
+    primary: #3b82f6,
+    primary-dark: #2563eb,
+    primary-light: #60a5fa,
+    secondary: #f59e0b,
+    background: #111827,
+    background-secondary: #1f2937,
+    text: #f9fafb,
+    text-secondary: #d1d5db,
+    border: #374151,
+    disabled: #4b5563,
+    error: #ef4444,
+    success: #22c55e
+  )
+);
+
+// Función para obtener colores
+@function color($color-name, $theme: light) {
+  @return map-get(map-get($colors, $theme), $color-name);
+}
+
+// Variables CSS para temas dinámicos
+:root {
+  @each $name, $color in map-get($colors, light) {
+    --#{$name}: #{$color};
+  }
+}
+
+[data-theme="dark"] {
+  @each $name, $color in map-get($colors, dark) {
+    --#{$name}: #{$color};
+  }
+}

@@ -1,0 +1,138 @@
+@import '../../../styles/variables';
+
+.header {
+  background-color: var(--background);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+
+  .navContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    min-height: 8vh;
+    margin: 0 auto;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+  }
+
+  .nav{    
+    width: 100%;        
+  }
+
+  .navList {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    justify-content: space-between;
+  }
+
+  .navLink {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.3s ease;    
+
+    &:hover {
+      color: var(--primary);
+    }
+
+    &.active {
+      color: var(--primary);
+      font-weight: 600;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--primary);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 1rem;
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 80%;
+      height: 100vh;
+      background-color: var(--background);
+      transition: left 0.3s ease;
+      z-index: 1000;
+
+      &.active {
+        left: 0;
+      }
+    }
+
+    .navList {
+      flex-direction: column;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+  }
+}
+
+
+.menuToggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  z-index: 1100;
+}
+
+@media (max-width: 768px) {
+  .menuToggle {
+    display: block;
+    position: absolute;
+    right: 2rem;
+    top: 1.5rem;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    height: 100vh;
+    background-color: var(--background);
+    transition: left 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav.active {
+    left: 0;
+  }
+
+  .navList {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+  }
+}
