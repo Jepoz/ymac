@@ -17,7 +17,7 @@ const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ phoneNumber, message = 
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      icon={<FaWhatsapp />}
+      icon={<FaWhatsapp size={24} />}
       text="¡Pide por WhatsApp!"
       className="whatsapp-style"
     />

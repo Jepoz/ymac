@@ -12,14 +12,19 @@
     
 }
 
-.firstSection{
-    background-color: var(--primary);
+.homeSection{
+    background-color: var(--background);
 }
 
-.secondSection {
+.aboutUsSection {
     background-color: var(--secondary);
 }
 
-.thirdSection {
+.productsSection {
+    background-color: var(--disabled);
+}
+
+
+.contactSection {
     background-color: var(--disabled);
 }

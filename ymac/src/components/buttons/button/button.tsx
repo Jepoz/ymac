@@ -28,7 +28,7 @@ const Button: React.FC<ButtonProps> = ({
     </>
   );
 
-  const classes = `base-button ${className}`;
+  const classes = `${styles["base-button"]} ${className}`;
 
   if (as === 'a' && href) {
     return (

@@ -1,3 +1,4 @@
+@import '../../../styles/variables';
 .base-button {
   display: inline-flex;
   align-items: center;
@@ -10,10 +11,15 @@
   text-decoration: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  background-color: red;
-  padding: 1rem;
-  border-radius: 10rem;
+  background-color:  var(--secondary);
+  color: var(--text-secondary);    
 }
+
+.base-button:hover {
+  background-color:  var(--primary);
+  color: var(--text-secondary);    
+}
+
 
 .button-icon {
   margin-right: 8px;
