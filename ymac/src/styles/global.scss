@@ -281,7 +281,7 @@ h3 { font-size: 2rem; }
 
 
 //effects
-@keyframes fadeInUp {
+@keyframes fadeInDown {
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -301,7 +301,7 @@ h3 { font-size: 2rem; }
 .revealed {
   opacity: 1;
   transform: translateY(0);
-  animation: fadeInUp 0.6s ease-out forwards;
+  animation: fadeInDown 0.6s ease-out forwards;
 }
 
 
