@@ -5,7 +5,7 @@
 }
 
 .sectionContainer{
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;        
@@ -21,10 +21,50 @@
 }
 
 .productsSection {
-    background-color: var(--disabled);
+    background-color: var(--disabled);    
+
+    .page-products-container {        
+        height: 100vh;
+
+        .page-products-title-container {        
+            padding-top: 8rem;
+            padding-bottom: 3rem;
+            
+            .page-products-title {        
+                
+                text-align: center;
+            }
+        }
+        
+
+        .products-grid {
+            display: grid;    
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            padding: 0 1rem;
+        }
+
+        @media (max-width: 1024px) {
+            .products-grid {        
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            .products-grid {        
+                grid-template-columns: repeat(1, 1fr);
+            }        
+        }
+    }
 }
 
 
 .contactSection {
     background-color: var(--disabled);
 }
+
+
+
+
+

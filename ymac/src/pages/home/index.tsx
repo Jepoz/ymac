@@ -1,11 +1,69 @@
 
 import WhatsAppButton from '../../components/buttons/whatsapp-button/whatsapp-button';
+import ProductCard from '../../components/cards/product-card/product-card';
 import { HoverImage } from '../../components/effects/hover-image';
 import styles from './home.module.scss';
 // import PrimaryButton from '../../components/buttons/primary-button/primary-button';
 // import ScrollReveal from '../../components/effects/scroll-reveal/scroll-reveal';
 
 const Home = () => {  
+
+    const products = [
+    {
+      id: 1,
+      name: 'Producto Premium',
+      brand: 'Caribu',      
+      description: {
+        size: 'Tallas del 22 al 26',
+        steelToe: 'Casco de poliamida',
+        dielectric:'Dieléctrico ',
+        sole:'Suela de Hule/Phylon'
+      },
+      price: 99.99,
+      image: 'images/botas1.jpg',
+    },
+    {
+      id: 2,
+      name: 'Producto Estándar',
+      brand: 'Caribu',
+      description: {
+        size: 'Tallas del 22 al 26',
+        steelToe: 'Casco de poliamida',
+        dielectric:'Dieléctrico ',
+        sole:'Suela de Hule/Phylon'
+      },
+      price: 59.99,
+      image: 'images/botas2.png',
+    },
+    {
+      id: 3,
+      name: 'Producto Básico',
+      brand: 'Caribu',
+      description: {
+        size: 'Tallas del 22 al 26',
+        steelToe: 'Casco de poliamida',
+        dielectric:'Dieléctrico ',
+        sole:'Suela de Hule/Phylon'
+      },
+      price: 29.99,
+      image: 'images/botas1.jpg',
+    },
+    {
+      id: 4,
+      name: 'Producto Empresarial',
+      brand: 'Caribu',
+      description: {
+        size: 'Tallas del 22 al 26',
+        steelToe: 'Casco de poliamida',
+        dielectric:'Dieléctrico ',
+        sole:'Suela de Hule/Phylon'
+      },
+      price: 199.99,
+      image: 'images/botas2.png',
+    },
+  ];
+
+
   return (
     <div className={styles.homePage}>
 
@@ -61,6 +119,30 @@ const Home = () => {
       </div>
 
       <div className={`${styles.sectionContainer} ${styles.productsSection}`}>        
+          <div className={styles['page-products-container']}>    
+            <div className={styles['page-products-title-container']}>
+              <h1 className={styles['page-products-title']}>Nuestros Productos</h1>              
+            </div>
+            <div className={styles["products-grid"]}>
+              {products.map((product) => (
+                <ProductCard                 
+                  key={product.id}
+                  brand={product.brand}
+                  name={product.name}
+                  size={product.description.size}
+                  dielectric={product.description.dielectric}
+                  sole={product.description.sole}
+                  steelToe={product.description.steelToe}                  
+                  image={product.image}
+                />
+              ))}
+          </div>
+          
+        </div>
+      </div>
+
+
+      {/* <div className={`${styles.sectionContainer} ${styles.contactSection}`}>        
           <div className='flex-row justify-content-center align-items-cener'>                
           <div className='flex-column justify-content-center align-items-cener'>
             <div className='py-3'>
@@ -83,33 +165,7 @@ const Home = () => {
             <img src='../../../assets/images/homeSection.png'/>
           </div>
         </div>
-      </div>
-
-
-      <div className={`${styles.sectionContainer} ${styles.contactSection}`}>        
-          <div className='flex-row justify-content-center align-items-cener'>                
-          <div className='flex-column justify-content-center align-items-cener'>
-            <div className='py-3'>
-              <h2 className='text-center'>
-                L’Cannuet: Hecho con amor para tu bebé
-              </h2>  
-            </div>
-            <div className='py-3'>
-              <p className='text-center'>
-                Descubre nuestra hermosa colección de cunas, cambiadores, ropa, decoración y más para tu pequeño cacahuate.
-              </p>  
-            </div>
-            <div className='flex-column justify-content-center align-items-center py-3'>
-              <button >Ver productos</button>  
-            </div>
-                                    
-          </div>
-
-          <div>
-            <img src='../../../assets/images/homeSection.png'/>
-          </div>
-        </div>
-      </div>
+      </div> */}
 
 
     </div>

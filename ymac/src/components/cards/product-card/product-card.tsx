@@ -1,11 +1,15 @@
 // import WhatsappButton from '../buttons/whatsapp-button/whatsapp-button';
+import Button from '../../buttons/button/button';
+import ShoppingBagButton from '../../buttons/shopping-bag-button/shopping-bag-button';
 import styles from './product-card.module.scss';
 
-
 export type ProductCardProps = {
-  name: string;
-  description: string;
-  price: number;
+  name: string;  
+  brand: string;
+  size: string;
+  steelToe: string;
+  dielectric:string;
+  sole:string;  
   image: string;
   
 }
@@ -16,16 +20,23 @@ const ProductCard :React.FC<ProductCardProps> = props => {
       <div className={styles['product-image']}>
         <img src={props.image} alt={props.name} />
       </div>
-      <div className={styles['content-info']}>
-        <div className={styles['product-info']}>
-          <h3>{props.name}</h3>
-          <p className={styles['product-description']}>{props.description}</p>
-          <div className={styles['product-price']}>${props.price.toFixed(2)}</div>        
+
+      <div className={styles['product-title-container']}>
+        <h3>{props.name}</h3>
+        <p><b>Marca</b> {props.brand}</p>
+      </div>
+
+      <div className={styles['product-description-container']}>
+        <div className={styles['product-info']}>         
+          <p className={styles['product-title-description']}><b>Descripción</b></p> 
+          <p className={styles['product-description']}>-{props.size}</p>
+          <p className={styles['product-description']}>-{props.steelToe}</p>
+          <p className={styles['product-description']}>-{props.dielectric}</p>
+          <p className={styles['product-description']}>-{props.sole}</p>          
         </div>
 
-        <div className={styles['contact-button-container']}>
-          {/* <WhatsappButton phoneNumber="+526421211926" message="Hola, me gustaría saber más sobre sus productos." /> */}
-          <p className={'px-3'}>Solicitar información.</p>
+        <div className={styles['contact-button-container']}>          
+          <ShoppingBagButton text='Haz tu pedido'/>
         </div>
       </div>
     </div>
