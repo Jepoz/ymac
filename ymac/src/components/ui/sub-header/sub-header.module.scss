@@ -1,0 +1,16 @@
+@import '../../../styles/variables';
+
+.sub-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary);
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+
+    .sub-header-text {
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 1.5rem;
+    }
+  }

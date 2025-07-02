@@ -15,7 +15,7 @@ const Header = () => {
   };
 
   return (
-    <header className={styles.header}>
+    <header className={styles.header}>      
       <div className={styles.navContainer}>
         {/* <NavLink to="/" className={styles.logo}>DeepStyle</NavLink> */}
 
