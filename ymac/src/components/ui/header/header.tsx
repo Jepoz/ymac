@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import { useState, useContext  } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FiMenu, FiX } from 'react-icons/fi';
 import styles from './header.module.scss';
+import { ScrollContext } from '../../../context/scroll-context';
 
-const Header = () => {
+
+const Header = () => {  
+  const scroll = useContext(ScrollContext);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -13,6 +16,17 @@ const Header = () => {
   const closeMenu = () => {
     setMenuOpen(false);
   };
+    
+  if (!scroll) return null;
+
+  const {
+    scrollToSection,
+    homeSectionRef,
+    aboutUsSectionRef,
+    productsSectionRef,
+    contactSectionRef,
+    activeSection,
+  } = scroll;
 
   return (
     <header className={styles.header}>      
@@ -25,25 +39,21 @@ const Header = () => {
 
         <nav className={`${styles.nav} ${menuOpen ? styles.active : ''}`}>
           <ul className={styles.navList}>
-            <li>
-              <NavLink to="/" className={({ isActive }) => isActive ? `${styles.navLink} ${styles.active}` : styles.navLink} onClick={closeMenu}>
-                Home
-              </NavLink>
+            <li className={activeSection === 'home' ? styles.active : ''}
+                onClick={() => scrollToSection(homeSectionRef)}>              
+              Home              
             </li>
-            <li>
-              <NavLink to="/productos" className={({ isActive }) => isActive ? `${styles.navLink} ${styles.active}` : styles.navLink} onClick={closeMenu}>
-                Sobre nosotros
-              </NavLink>
+            <li className={activeSection === 'about' ? styles.active : ''}
+                onClick={() => scrollToSection(aboutUsSectionRef)}>              
+               Sobre nosotros              
             </li>
-            <li>
-              <NavLink to="/productos" className={({ isActive }) => isActive ? `${styles.navLink} ${styles.active}` : styles.navLink} onClick={closeMenu}>
-                Productos
-              </NavLink>
+            <li className={activeSection === 'products' ? styles.active : ''}
+                onClick={() => scrollToSection(productsSectionRef)}>              
+              Productos              
             </li>
-            <li>
-              <NavLink to="/contacto" className={({ isActive }) => isActive ? `${styles.navLink} ${styles.active}` : styles.navLink} onClick={closeMenu}>
-                Contacto
-              </NavLink>
+            <li className={activeSection === 'contact' ? styles.active : ''}
+                onClick={() => scrollToSection(contactSectionRef)}>              
+              Contacto              
             </li>            
           </ul>
         </nav>

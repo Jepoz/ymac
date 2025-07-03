@@ -1,8 +1,10 @@
 
+import React, { useContext } from 'react';
 import WhatsAppButton from '../../components/buttons/whatsapp-button/whatsapp-button';
 import ProductCard from '../../components/cards/product-card/product-card';
 import { HoverImage } from '../../components/effects/hover-image';
 import styles from './home.module.scss';
+import { ScrollContext } from '../../context/scroll-context';
 // import PrimaryButton from '../../components/buttons/primary-button/primary-button';
 // import ScrollReveal from '../../components/effects/scroll-reveal/scroll-reveal';
 
@@ -64,10 +66,14 @@ const Home = () => {
   ];
 
 
+  const scroll = useContext(ScrollContext);
+  if (!scroll) return null;
+
+
   return (
     <div className={styles.homePage}>
 
-      <div className={`${styles.sectionContainer} ${styles.homeSection}`}>
+      <div ref={scroll.homeSectionRef} className={`${styles.sectionContainer} ${styles.homeSection}`}>
         <div className='flex-row justify-content-center align-items-cener'>   
           <div>            
             <HoverImage
@@ -93,7 +99,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className={`${styles.sectionContainer} ${styles.aboutUsSection}`}>        
+      <div ref={scroll.aboutUsSectionRef} className={`${styles.sectionContainer} ${styles.aboutUsSection}`}>        
           <div className='flex-row justify-content-center align-items-cener'>                
           <div className='flex-column justify-content-center align-items-cener'>
             <div className='py-3'>
@@ -118,7 +124,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className={`${styles.sectionContainer} ${styles.productsSection}`}>        
+      <div ref={scroll.productsSectionRef} className={`${styles.sectionContainer} ${styles.productsSection}`}>        
           <div className={styles['page-products-container']}>    
             <div className={styles['page-products-title-container']}>
               <h1 className={styles['page-products-title']}>Nuestros Productos</h1>              
