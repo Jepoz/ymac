@@ -92,6 +92,15 @@ h3 { font-size: 2rem; }
   max-width: 25rem;
 }
 
+//ul list
+ul.default-list {
+  list-style: none;
+  padding-left: 0 !important;
+
+  li::before {
+    content: "- ";    
+  }
+}
 
 //Cards
 .card {

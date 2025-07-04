@@ -1,74 +1,28 @@
 
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import WhatsAppButton from '../../components/buttons/whatsapp-button/whatsapp-button';
 import ProductCard from '../../components/cards/product-card/product-card';
 import { HoverImage } from '../../components/effects/hover-image';
 import styles from './home.module.scss';
 import { ScrollContext } from '../../context/scroll-context';
+import ProductModal from '../../components/modals/product-modal/product-modal';
+import products from '../../data/products';
+import type { Product } from '../../types/product';
 // import PrimaryButton from '../../components/buttons/primary-button/primary-button';
 // import ScrollReveal from '../../components/effects/scroll-reveal/scroll-reveal';
 
 const Home = () => {  
-
-    const products = [
-    {
-      id: 1,
-      name: 'Producto Premium',
-      brand: 'Caribu',      
-      description: {
-        size: 'Tallas del 22 al 26',
-        steelToe: 'Casco de poliamida',
-        dielectric:'Dieléctrico ',
-        sole:'Suela de Hule/Phylon'
-      },
-      price: 99.99,
-      image: 'images/botas1.jpg',
-    },
-    {
-      id: 2,
-      name: 'Producto Estándar',
-      brand: 'Caribu',
-      description: {
-        size: 'Tallas del 22 al 26',
-        steelToe: 'Casco de poliamida',
-        dielectric:'Dieléctrico ',
-        sole:'Suela de Hule/Phylon'
-      },
-      price: 59.99,
-      image: 'images/botas2.png',
-    },
-    {
-      id: 3,
-      name: 'Producto Básico',
-      brand: 'Caribu',
-      description: {
-        size: 'Tallas del 22 al 26',
-        steelToe: 'Casco de poliamida',
-        dielectric:'Dieléctrico ',
-        sole:'Suela de Hule/Phylon'
-      },
-      price: 29.99,
-      image: 'images/botas1.jpg',
-    },
-    {
-      id: 4,
-      name: 'Producto Empresarial',
-      brand: 'Caribu',
-      description: {
-        size: 'Tallas del 22 al 26',
-        steelToe: 'Casco de poliamida',
-        dielectric:'Dieléctrico ',
-        sole:'Suela de Hule/Phylon'
-      },
-      price: 199.99,
-      image: 'images/botas2.png',
-    },
-  ];
-
+  const [showModal, setShowModal] = useState(false);
+  const [productSelected, setProductSelected] = useState<Product>();
 
   const scroll = useContext(ScrollContext);
   if (!scroll) return null;
 
+
+  const selectProduct = (product:Product) => {
+    setProductSelected(product);
+    setShowModal(true);
+  }
 
   return (
     <div className={styles.homePage}>
@@ -132,14 +86,12 @@ const Home = () => {
             <div className={styles["products-grid"]}>
               {products.map((product) => (
                 <ProductCard                 
-                  key={product.id}
+                  key={product.name}
                   brand={product.brand}
                   name={product.name}
-                  size={product.description.size}
-                  dielectric={product.description.dielectric}
-                  sole={product.description.sole}
-                  steelToe={product.description.steelToe}                  
-                  image={product.image}
+                  description={product.description}
+                  image={product.images[0]}
+                  onClick={() => selectProduct(product)}
                 />
               ))}
           </div>
@@ -172,6 +124,10 @@ const Home = () => {
           </div>
         </div>
       </div> */}
+
+      {showModal && productSelected && (
+        <ProductModal product={productSelected} onClose={() => setShowModal(false)} />
+      )}
 
 
     </div>
