@@ -14,6 +14,10 @@
 
 .homeSection{
     background-color: var(--background);
+
+    .home-image {
+        max-width: 70vh;
+    }
 }
 
 .aboutUsSection {

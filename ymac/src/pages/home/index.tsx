@@ -31,6 +31,7 @@ const Home = () => {
         <div className='flex-row justify-content-center align-items-cener'>   
           <div>            
             <HoverImage
+            className={styles['home-image']}
               defaultImage="images/botas1.jpg"
               hoverImage="images/botas2.png" 
               alt=''             
