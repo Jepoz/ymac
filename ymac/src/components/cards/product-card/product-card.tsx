@@ -1,6 +1,7 @@
 // import WhatsappButton from '../buttons/whatsapp-button/whatsapp-button';
 import Button from '../../buttons/button/button';
 import ShoppingBagButton from '../../buttons/shopping-bag-button/shopping-bag-button';
+import Card from '../card/card';
 import styles from './product-card.module.scss';
 
 export type ProductCardProps = {
@@ -14,7 +15,7 @@ export type ProductCardProps = {
 
 const ProductCard :React.FC<ProductCardProps> = props => {
   return (
-    <div className={`${styles['product-card']} my-4`} onClick={props.onClick}>
+    <Card className={`${styles['product-card']} my-4`} onClick={props.onClick}>    
       <div className={styles['product-image']}>
         <img src={props.image} alt={props.name} />
       </div>
@@ -37,8 +38,8 @@ const ProductCard :React.FC<ProductCardProps> = props => {
         <div className={styles['contact-button-container']}>          
           <ShoppingBagButton text='Haz tu pedido'/>
         </div>
-      </div>
-    </div>
+      </div>    
+    </Card>
   );
 };
 
