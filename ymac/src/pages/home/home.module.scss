@@ -1,19 +1,22 @@
 @import '../../styles/variables';
 
 .homePage {
-    min-height: 90vh;
+    min-height: 88vh;
 }
 
 .sectionContainer{    
-    min-height: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;        
+  scroll-margin-top: 12vh; // <= esto es lo clave
+  min-height: 100vh;
+  padding-top: 6vh;
+  padding-bottom: 6vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
     
 }
 
 .homeSection{
-    background-color: var(--background);
+    background-image: url('images/backgrounds/home-background.png');
 
     .home-image {
         max-width: 70vh;
@@ -22,13 +25,14 @@
 
 .aboutUsSection {
     background-color: var(--secondary);
+    min-height: 88vh;
 }
 
 .productsSection {
     background-color: var(--disabled);    
 
     .page-products-container {        
-        height: 100vh;
+        min-height: 88vh;
 
         .page-products-title-container {        
             padding-top: 8rem;
@@ -72,3 +76,8 @@
 
 
 
+@media (max-width: 768px) {
+  .sectionContainer {
+    scroll-margin-top: 14vh;
+  }
+}

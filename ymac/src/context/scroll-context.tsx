@@ -19,9 +19,14 @@ export const ScrollProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
   const [activeSection, setActiveSection] = useState<string>('home');
 
-  const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
-    ref.current?.scrollIntoView({ behavior: 'smooth' });
-  };
+const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
+  if (ref.current) {
+    const yOffset = -window.innerHeight * 0.12; // 12vh en píxeles
+    const y = ref.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }
+};
+
 
   useEffect(() => {
     const sections = [

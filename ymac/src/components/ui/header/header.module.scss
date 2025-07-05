@@ -4,17 +4,16 @@
   background-color: var(--background);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: sticky;
-  top: 3rem;
+  top: 3vh;
   z-index: 1500;
-  transition: background-color 0.3s ease;  
+  transition: background-color 0.3s ease;
 
   .navContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
     max-width: 1200px;
-    min-height: 8vh;
+    height: 9vh;
     margin: 0 auto;
   }
 
@@ -25,22 +24,35 @@
     text-decoration: none;
   }
 
-  .nav{    
-    width: 100%;        
-    li {
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      color: var(--primary);;
-      // border-bottom: 2px solid var(--primary);;
-      border-bottom: 2px solid transparent;
-    }
+  .nav {
+    width: 100%;
 
-    li.active {
-      color: var(--primary);
-      font-weight: bold;
-      // border-bottom: 2px solid var(--primary) !important;
-    }
+    ul {
+      justify-content: space-around;
+      align-items: center;
 
+      li {
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        color: var(--primary);
+        ;
+        // border-bottom: 2px solid var(--primary);;
+        border-bottom: 2px solid transparent;
+
+        .brand {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+        }
+      }
+
+      li.active {
+        color: var(--primary);
+        font-weight: bold;
+        // border-bottom: 2px solid var(--primary) !important;
+      }
+    }
   }
 
   .navList {
@@ -56,7 +68,7 @@
     font-weight: 500;
     padding: 0.5rem 0;
     position: relative;
-    transition: color 0.3s ease;    
+    transition: color 0.3s ease;
 
     &:hover {
       color: var(--primary);

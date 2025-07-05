@@ -47,6 +47,9 @@ const Header = () => {
                 onClick={() => scrollToSection(aboutUsSectionRef)}>              
                Sobre nosotros              
             </li>
+            <li>              
+              <img className={styles.brand} src='images/brand/brand-simple.png'/>
+            </li>
             <li className={activeSection === 'products' ? styles.active : ''}
                 onClick={() => scrollToSection(productsSectionRef)}>              
               Productos              
