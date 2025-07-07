@@ -20,13 +20,12 @@ export const HoverImage = ({
   height = 'auto',
   classNameContainer = '',
   classNameImage = '',
-
 }: HoverImageProps) => {
-  const { imageSrc, isHovered, handleMouseEnter, handleMouseLeave } = 
+  const { imageSrc, animationDirection, handleMouseEnter, handleMouseLeave } =
     useHoverImage(defaultImage, hoverImage);
 
   return (
-    <div 
+    <div
       className={`${styles.imageContainer} ${classNameContainer}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -35,7 +34,9 @@ export const HoverImage = ({
       <img
         src={imageSrc}
         alt={alt}
-        className={`${styles.image} ${isHovered ? styles.fadeInDown : ''} ${classNameImage}`}
+        className={`${styles.image} ${
+          animationDirection === 'down' ? styles.fadeInDown : styles.fadeInUp
+        } ${classNameImage}`}
       />
     </div>
   );

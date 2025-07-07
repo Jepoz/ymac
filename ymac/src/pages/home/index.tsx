@@ -33,8 +33,8 @@ const Home = () => {
             <HoverImage
               classNameImage={styles['home-image']}
               classNameContainer={styles['home-image-hover-container']}
-              defaultImage="images/botas1.jpg"
-              hoverImage="images/botas2.png" 
+              defaultImage="images/home/default.png"
+              hoverImage="images/home/hover.png" 
               alt=''             
             />
           </div>                       
@@ -72,8 +72,13 @@ const Home = () => {
             <div className={styles['about-us-distributors-container']}>
               <h3 className={styles['about-us-distributors-title']}>Distribuidores</h3>
               <div className={styles['about-us-distributors-images-container']}>
-                <img src='images/brand/caribu-brand.png'/>
-                <img src='images/brand/dutty-gear-brand.png'/>
+                <div className={styles['caribu-brand-image-container']}>
+                  <img className={styles['caribu-brand-image']} src='images/brand/caribu-brand.png'/>
+                </div>
+                <div className={styles['dutty-gear-brand-image-container']}>
+                  <img className={styles['dutty-gear-brand-image']} src='images/brand/dutty-gear-brand.png'/>
+                </div>
+                
               </div>
             </div>
           </div>

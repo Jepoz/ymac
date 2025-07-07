@@ -1,23 +1,25 @@
 // hooks/useHoverImage.ts
 import { useState } from 'react';
 
+type AnimationDirection = 'down' | 'up';
+
 export const useHoverImage = (defaultImage: string, hoverImage: string) => {
   const [imageSrc, setImageSrc] = useState(defaultImage);
-  const [isHovered, setIsHovered] = useState(false);
+  const [animationDirection, setAnimationDirection] = useState<AnimationDirection>('down');
 
   const handleMouseEnter = () => {
-    setIsHovered(true);
     setImageSrc(hoverImage);
+    setAnimationDirection('down');
   };
 
   const handleMouseLeave = () => {
-    setIsHovered(false);
     setImageSrc(defaultImage);
+    setAnimationDirection('up');
   };
 
   return {
     imageSrc,
-    isHovered,
+    animationDirection,
     handleMouseEnter,
     handleMouseLeave,
   };

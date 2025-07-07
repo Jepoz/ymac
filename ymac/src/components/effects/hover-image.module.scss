@@ -1,17 +1,22 @@
-// components/HoverImage/HoverImage.module.scss
 .imageContainer {
   position: relative;
   overflow: hidden;
   display: inline-block;
-  
+
   .image {
-    display: block;    
+    display: block;
     transition: opacity 0.3s ease, transform 0.3s ease;
-    
+
     &.fadeInDown {
       opacity: 0;
       transform: translateY(-10px);
       animation: fadeInDownAnimation 0.3s ease forwards;
+    }
+
+    &.fadeInUp {
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeInUpAnimation 0.3s ease forwards;
     }
   }
 }
@@ -20,6 +25,17 @@
   from {
     opacity: 0;
     transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUpAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
