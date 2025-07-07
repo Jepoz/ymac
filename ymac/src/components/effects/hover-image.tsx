@@ -8,7 +8,8 @@ interface HoverImageProps {
   alt: string;
   width?: number | string;
   height?: number | string;
-  className?: string;
+  classNameContainer?: string;
+  classNameImage?: string;
 }
 
 export const HoverImage = ({
@@ -17,14 +18,16 @@ export const HoverImage = ({
   alt,
   width = '100%',
   height = 'auto',
-  className = '',
+  classNameContainer = '',
+  classNameImage = '',
+
 }: HoverImageProps) => {
   const { imageSrc, isHovered, handleMouseEnter, handleMouseLeave } = 
     useHoverImage(defaultImage, hoverImage);
 
   return (
     <div 
-      className={`${styles.imageContainer} ${className}`}
+      className={`${styles.imageContainer} ${classNameContainer}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       style={{ width, height }}
@@ -32,7 +35,7 @@ export const HoverImage = ({
       <img
         src={imageSrc}
         alt={alt}
-        className={`${styles.image} ${isHovered ? styles.fadeInDown : ''}`}
+        className={`${styles.image} ${isHovered ? styles.fadeInDown : ''} ${classNameImage}`}
       />
     </div>
   );

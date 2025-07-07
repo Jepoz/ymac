@@ -50,6 +50,74 @@ const products:Product[] = [
         "images/botas1.jpg",
         "images/botas1.jpg"
       ]
+    },
+
+    {
+      id:3,
+      name: "340 MALLA NEGRO GRIS",
+      brand: "Caribu",
+      description: [
+        "Tallas Del 25 Al 30",
+        "Casco De Poliamida",
+        "Dieléctrico",
+        "Suela De Hule/Phylon"
+      ],
+      images: [
+        "images/botas1.jpg",
+        "images/botas1.jpg",
+        "images/botas1.jpg"
+      ]
+    },
+
+    {
+      id:3,
+      name: "340 MALLA NEGRO GRIS",
+      brand: "Caribu",
+      description: [
+        "Tallas Del 25 Al 30",
+        "Casco De Poliamida",
+        "Dieléctrico",
+        "Suela De Hule/Phylon"
+      ],
+      images: [
+        "images/botas1.jpg",
+        "images/botas1.jpg",
+        "images/botas1.jpg"
+      ]
+    },
+
+    {
+      id:3,
+      name: "340 MALLA NEGRO GRIS",
+      brand: "Caribu",
+      description: [
+        "Tallas Del 25 Al 30",
+        "Casco De Poliamida",
+        "Dieléctrico",
+        "Suela De Hule/Phylon"
+      ],
+      images: [
+        "images/botas1.jpg",
+        "images/botas1.jpg",
+        "images/botas1.jpg"
+      ]
+    },
+
+    {
+      id:3,
+      name: "340 MALLA NEGRO GRIS",
+      brand: "Caribu",
+      description: [
+        "Tallas Del 25 Al 30",
+        "Casco De Poliamida",
+        "Dieléctrico",
+        "Suela De Hule/Phylon"
+      ],
+      images: [
+        "images/botas1.jpg",
+        "images/botas1.jpg",
+        "images/botas1.jpg"
+      ]
     }
 ]
 

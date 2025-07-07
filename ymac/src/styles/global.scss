@@ -8,6 +8,11 @@
   box-sizing: border-box;
 }
 
+#root {
+  background-image: url('images/backgrounds/background.png');
+  background-color: #EAF4F9;
+}
+
 html {
   font-size: 62.5%; /* 1rem = 10px */
   scroll-behavior: smooth;
@@ -33,7 +38,7 @@ a {
 }
 
 /* Tipografía responsive */
-h1 { font-size: 3.2rem; }
+h1 { font-size: 5rem; }
 h2 { font-size: 2.4rem; }
 h3 { font-size: 2rem; }
 
@@ -134,6 +139,10 @@ ul.default-list {
 
 .justify-content-center {
   justify-content: center;
+}
+
+.align-items-start {
+  align-items: start;
 }
 
 .align-items-center {

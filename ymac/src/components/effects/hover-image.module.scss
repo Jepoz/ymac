@@ -5,9 +5,7 @@
   display: inline-block;
   
   .image {
-    display: block;
-    width: 100%;
-    height: auto;
+    display: block;    
     transition: opacity 0.3s ease, transform 0.3s ease;
     
     &.fadeInDown {

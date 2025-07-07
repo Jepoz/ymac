@@ -28,18 +28,19 @@ const Home = () => {
     <div className={styles.homePage}>
 
       <div ref={scroll.homeSectionRef} className={`${styles.sectionContainer} ${styles.homeSection}`}>
-        <div className='flex-row justify-content-center align-items-cener'>   
-          <div>            
+        <div className={styles['home-container']}>   
+          <div className={styles['home-image-container']}>            
             <HoverImage
-            className={styles['home-image']}
+              classNameImage={styles['home-image']}
+              classNameContainer={styles['home-image-hover-container']}
               defaultImage="images/botas1.jpg"
               hoverImage="images/botas2.png" 
               alt=''             
             />
           </div>                       
-          <div className={`${'flex-column justify-content-center align-items-cener'} `}>
+          <div className={styles['home-title-container']}>
             <div className='py-3'>
-              <h1 className='text-center fade-in-up '>
+              <h1 className='fade-in-up '>
                 Calidad y confort para entornos laborales seguros
               </h1>  
             </div>            
@@ -55,28 +56,27 @@ const Home = () => {
       </div>
 
       <div ref={scroll.aboutUsSectionRef} className={`${styles.sectionContainer} ${styles.aboutUsSection}`}>        
-          <div className='flex-row justify-content-center align-items-cener'>                
-          <div className='flex-column justify-content-center align-items-cener'>
-            <div className='py-3'>
-              <h2 className='text-center'>
-                Calidad y confort para entornos laborales seguros
-              </h2>  
+          <div  className={styles['about-us-container']}>                
+            <div className={styles['about-us-title-container']}>
+              <h2 className={styles['about-us-title-text']}>¿Quiénes somos?</h2>
             </div>
-            <div className='py-3'>
-              <p className='text-center'>
-                Descubre nuestra hermosa colección de cunas, cambiadores, ropa, decoración y más para tu pequeño cacahuate.
-              </p>  
-            </div>
-            <div className='flex-column justify-content-center align-items-center py-3'>
-              <button >Ver productos</button>  
-            </div>
-                                    
-          </div>
 
-          <div>
-            <img src='../../assets/images/botas2.png'/>
+            <div className={styles['about-us-description-container']}>
+              <p className={styles['about-us-description-text']}>En Soluciones Industriales YMAC, protegemos la vida, la salud y el entorno laboral con soluciones integrales en seguridad industrial. Apostamos por la innovación, la calidad y la sostenibilidad para entornos de trabajo más seguros y humanos.</p>
+            </div>
+
+            <div className={styles['about-us-description-made-by-container']}>
+              <h3 className={styles['about-us-description-made-by-text']}>Zapatos completamente de procesos artesanales hechos con amor y materiales de calidad.</h3>
+            </div>
+
+            <div className={styles['about-us-distributors-container']}>
+              <h3 className={styles['about-us-distributors-title']}>Distribuidores</h3>
+              <div className={styles['about-us-distributors-images-container']}>
+                <img src='images/brand/caribu-brand.png'/>
+                <img src='images/brand/dutty-gear-brand.png'/>
+              </div>
+            </div>
           </div>
-        </div>
       </div>
 
       <div ref={scroll.productsSectionRef} className={`${styles.sectionContainer} ${styles.productsSection}`}>        

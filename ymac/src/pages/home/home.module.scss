@@ -1,68 +1,173 @@
 @import '../../styles/variables';
 
+
+//General
 .homePage {
     min-height: 88vh;
-}
-
-.sectionContainer{    
-  scroll-margin-top: 12vh; // <= esto es lo clave
-  min-height: 100vh;
-  padding-top: 6vh;
-  padding-bottom: 6vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
     
 }
 
-.homeSection{
-    background-image: url('images/backgrounds/home-background.png');
+.sectionContainer {
+    scroll-margin-top: 12vh; // <= esto es lo clave
+    min-height: 88vh;
+    padding-top: 6vh;
+    padding-bottom: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    .home-image {
-        max-width: 70vh;
+}
+
+//Home
+.homeSection {
+    background-image: url('images/backgrounds/home-background.png');
+    max-height: 88vh;
+
+    .home-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-height: 88vh;
+
+        .home-image-container {
+            max-height: 88vh;
+            width: 50%;
+
+            .home-image-hover-container {
+                display: flex;
+                justify-content: end;
+
+                .home-image {
+                    max-height: 88vh;
+                }
+            }
+
+        }
+
+        .home-title-container {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .home-container {
+            display: flex;
+            flex-direction: column;
+            height: 88vh !important;
+
+
+            .home-image-container {
+                width: 100% !important;
+
+                .home-image-hover-container {
+                    width: 100vw;
+                    height: 54vh !important;
+
+                    .home-image {
+                        max-width: 100vw;
+                        height: 54vh;
+
+                    }
+                }
+
+            }
+
+            .home-title-container {
+                height: 34vh !important;
+                width: 80vw !important;
+                display: flex;
+                flex-direction: column;
+                justify-content: start !important;
+                align-items: start !important;
+            }
+        }
     }
 }
 
+//About us
 .aboutUsSection {
-    background-color: var(--secondary);
+    background-image: url('images/backgrounds/about-us-background.png');
     min-height: 88vh;
+    display: flex;
+
+    .about-us-container {
+        height: 88vh !important; // <-- esto es clave para que tome el height del padre
+        width: 50vw !important; // opcional, si quieres que use todo el ancho disponible
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+
+
+        .about-us-title-text {
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .about-us-description-text {
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .about-us-description-made-by-text {
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .about-us-distributors-title {
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .about-us-distributors-images-container {
+            display: flex;
+            gap: 5rem;
+            justify-content: end;
+            align-items: center;
+        }
+
+    }
 }
 
 .productsSection {
-    background-color: var(--disabled);    
+    // background-color: var(--disabled);
 
-    .page-products-container {        
+    .page-products-container {
         min-height: 88vh;
 
-        .page-products-title-container {        
+        .page-products-title-container {
             padding-top: 8rem;
             padding-bottom: 3rem;
-            
-            .page-products-title {        
-                
+
+            .page-products-title {
+
                 text-align: center;
             }
         }
-        
+
 
         .products-grid {
-            display: grid;    
+            display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             padding: 0 1rem;
         }
 
         @media (max-width: 1024px) {
-            .products-grid {        
+            .products-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
 
         @media (max-width: 768px) {
-            .products-grid {        
+            .products-grid {
                 grid-template-columns: repeat(1, 1fr);
-            }        
+            }
         }
     }
 }
@@ -76,8 +181,10 @@
 
 
 
+
+
 @media (max-width: 768px) {
-  .sectionContainer {
-    scroll-margin-top: 14vh;
-  }
+    .sectionContainer {
+        scroll-margin-top: 14vh;
+    }
 }
