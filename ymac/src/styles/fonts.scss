@@ -1,0 +1,58 @@
+// Variables para las fuentes (opcional pero recomendado)
+$font-display: "neue-haas-grotesk-display", sans-serif;
+$font-text: "neue-haas-grotesk-text", sans-serif;
+
+// Estilos base
+body {
+  font-family: $font-text;
+  font-weight: 400;
+}
+
+// Clases de utilidad para las diferentes variantes
+.font-display {
+  font-family: $font-display;
+  
+  &-regular {
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  &-italic {
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  &-bold {
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  &-bold-italic {
+    font-weight: 700;
+    font-style: italic;
+  }
+}
+
+.font-text {
+  font-family: $font-text;
+  
+  &-regular {
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  &-italic {
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  &-bold {
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  &-bold-italic {
+    font-weight: 700;
+    font-style: italic;
+  }
+}

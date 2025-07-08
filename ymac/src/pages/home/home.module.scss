@@ -92,7 +92,7 @@
 //About us
 .aboutUsSection {
     background-image: url('images/backgrounds/about-us-background.png');
-    min-height: 88vh;
+    height: 88vh;
     display: flex;
 
     .about-us-container {
@@ -167,20 +167,21 @@
 
             .about-us-distributors-images-container {
                 display: flex;
-                flex-direction: column;                
+                flex-direction: column;
                 justify-content: end;
                 align-items: center;
 
-                .caribu-brand-image-container { 
-                    width: 80%;                    
+                .caribu-brand-image-container {
+                    width: 80%;
 
                     .caribu-brand-image {
-                    width: 100%;
+                        width: 100%;
                     }
                 }
 
                 .dutty-gear-brand-image-container {
                     width: 80%;
+
                     .dutty-gear-brand-image {
                         width: 100%;
                     }

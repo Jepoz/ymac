@@ -40,7 +40,7 @@ const Home = () => {
           </div>                       
           <div className={styles['home-title-container']}>
             <div className='py-3'>
-              <h1 className='fade-in-up '>
+              <h1 className={styles['home-title']}>
                 Calidad y confort para entornos laborales seguros
               </h1>  
             </div>            
@@ -58,19 +58,19 @@ const Home = () => {
       <div ref={scroll.aboutUsSectionRef} className={`${styles.sectionContainer} ${styles.aboutUsSection}`}>        
           <div  className={styles['about-us-container']}>                
             <div className={styles['about-us-title-container']}>
-              <h2 className={styles['about-us-title-text']}>¿Quiénes somos?</h2>
+              <h1 className={styles['about-us-title-text']}>¿Quiénes somos?</h1>
             </div>
 
             <div className={styles['about-us-description-container']}>
-              <p className={styles['about-us-description-text']}>En Soluciones Industriales YMAC, protegemos la vida, la salud y el entorno laboral con soluciones integrales en seguridad industrial. Apostamos por la innovación, la calidad y la sostenibilidad para entornos de trabajo más seguros y humanos.</p>
+              <p className={`${styles['about-us-description-text']} description`}>En Soluciones Industriales YMAC, protegemos la vida, la salud y el entorno laboral con soluciones integrales en seguridad industrial. Apostamos por la innovación, la calidad y la sostenibilidad para entornos de trabajo más seguros y humanos.</p>
             </div>
 
             <div className={styles['about-us-description-made-by-container']}>
-              <h3 className={styles['about-us-description-made-by-text']}>Zapatos completamente de procesos artesanales hechos con amor y materiales de calidad.</h3>
+              <h3 className={`${styles['about-us-description-made-by-text']} description`}>Zapatos completamente de procesos artesanales hechos con amor y materiales de calidad.</h3>
             </div>
 
             <div className={styles['about-us-distributors-container']}>
-              <h3 className={styles['about-us-distributors-title']}>Distribuidores</h3>
+              <h3 className={`${styles['about-us-distributors-title']} description`}>Distribuidores</h3>
               <div className={styles['about-us-distributors-images-container']}>
                 <div className={styles['caribu-brand-image-container']}>
                   <img className={styles['caribu-brand-image']} src='images/brand/caribu-brand.png'/>
