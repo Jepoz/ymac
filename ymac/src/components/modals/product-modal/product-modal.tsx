@@ -27,8 +27,8 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
               />
             ))}
           </div>
-          <div className={styles.mainImage}>
-            <img src={mainImage} alt="Main product" />
+          <div className={styles['main-image-container']}>
+            <img className={styles['main-image']}  src={mainImage} alt="Main product" />
           </div>
 
           <div className={styles.details}>
