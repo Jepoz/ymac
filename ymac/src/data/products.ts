@@ -175,8 +175,8 @@ const products:Product[] = [
       ],
       images: [
         "images/products/11/default.png",
-        "images/products/1/2.png",
-        "images/products/1/3.png",
+        "images/products/11/2.png",
+        "images/products/11/3.png",
       ]
     },
 ]

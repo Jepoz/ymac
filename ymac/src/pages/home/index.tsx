@@ -10,6 +10,8 @@ import products from '../../data/products';
 import type { Product } from '../../types/product';
 import ProductDetailCard from '../../components/cards/product-detail-card/product-detail-card';
 import Card from '../../components/cards/card/card';
+import Constants from '../../constants/constants';
+
 // import PrimaryButton from '../../components/buttons/primary-button/primary-button';
 // import ScrollReveal from '../../components/effects/scroll-reveal/scroll-reveal';
 
@@ -48,8 +50,7 @@ const Home = () => {
             </div>            
             <div className='flex-column justify-content-center align-items-center py-3'>                            
               <WhatsAppButton
-                phoneNumber="+526421211926" 
-                message="Hola, me interesa hacer un pedido." 
+                text='¡Pide por WhatsApp!'
               />
             </div>
                                     
@@ -99,7 +100,7 @@ const Home = () => {
                   name={product.name}
                   description={product.description}
                   image={product.images[0]}
-                  onClick={() => selectProduct(product)}
+                  onClick={() => console.log('test')}
                 />
               ))}
           </div>
@@ -126,7 +127,7 @@ const Home = () => {
           </div>
 
           <div className={styles['description-container']}>
-              <h2 className={styles['description']}>¿Te interesa alguno de nuestros productos? <strong>Escríbenos ahora.</strong></h2>
+              <h2 className={`${styles['description']} font-text-regular`}>¿Te interesa alguno de nuestros productos? <strong>Escríbenos ahora.</strong></h2>
               <img src='images/contact/contact-whatsapp.png'/>
           </div>
         </div>             
