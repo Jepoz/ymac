@@ -10,7 +10,7 @@
 .sectionContainer {
     scroll-margin-top: 12vh; // <= esto es lo clave
     min-height: 88vh;
-    padding-top: 6vh;    
+    padding-top: 6vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -192,9 +192,9 @@
 }
 
 //Products
-.productsSection {    
+.productsSection {
     .page-products-container {
-        min-height: 88vh;        
+        min-height: 88vh;
         width: 100%;
 
         .page-products-title-container {
@@ -208,7 +208,7 @@
         }
 
 
-        .products-grid {            
+        .products-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
@@ -240,15 +240,16 @@
         justify-content: center;
         align-items: center;
 
-        .most-popular-product-title-container {   
-            flex:0.3;
+        .most-popular-product-title-container {
+            flex: 0.3;
+
             .most-popular-product-title {
                 color: var(--text-secondary);
-                
+
             }
         }
 
-        .most-popular-product-card {               
+        .most-popular-product-card {
             height: 70vh;
             width: 70vw;
             position: relative;
@@ -259,7 +260,7 @@
                 width: 80vw;
             }
 
-            
+
         }
     }
 
@@ -267,56 +268,73 @@
 
 //Contact
 .contactSection {
-  background-color: var(--primary);
-  height: 95vh;
-  display: flex;
-  flex-direction: column;
-
-  img {
-    width: 100%;
-    object-fit: contain;
-    height: auto; 
-  }
-
-  .contact-description-container {
-    flex: 1; 
+    background-color: var(--primary);
+    height: 95vh;
     display: flex;
-    flex-direction: row;
-    width: 100%;    
+    flex-direction: column;
 
-    .brand-image-container {
-      height: 100%;
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      
-
-      img {
-        width: 25rem;
-      }
+    img {
+        width: 100%;
+        object-fit: contain;
+        height: auto;
     }
 
-    .description-container {
-      height: 100%;
-      width: 100%;
-      flex: 1;      
-      
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      
-      .description {
-        color: var(--text-secondary);    
-        width: 60%;        
-        padding-bottom: 4rem;
-      }
+    .contact-description-container {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
 
-      img {
-        width: 50rem;
-      }
+        .brand-image-container {
+            height: 100%;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+            img {
+                width: 25rem;
+            }
+        }
+
+        .description-container {
+            height: 100%;
+            width: 100%;
+            flex: 1;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .description {
+                color: var(--text-secondary);
+                width: 60%;
+                padding-bottom: 4rem;
+            }
+
+            img {
+                width: 50rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            .description-container {
+                align-items: center;
+            .description {
+                color: var(--text-secondary);
+                width: 100%;
+                padding-bottom: 4rem;
+                text-align: center;
+            }
+
+            img {
+                max-width: 30rem;
+            }
+        }
+        }
     }
-  }
 }
 
 
