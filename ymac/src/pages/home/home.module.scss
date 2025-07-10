@@ -191,6 +191,7 @@
     }
 }
 
+//Products
 .productsSection {    
     .page-products-container {
         min-height: 88vh;        
@@ -249,10 +250,16 @@
 
         .most-popular-product-card {               
             height: 70vh;
-            width: 85vw;
+            width: 70vw;
             position: relative;
             display: flex;
             padding: 1rem;
+
+            @media (max-width: 768px) {
+                width: 80vw;
+            }
+
+            
         }
     }
 
