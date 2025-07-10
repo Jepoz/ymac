@@ -117,30 +117,20 @@ const Home = () => {
       </div>
 
 
-      {/* <div className={`${styles.sectionContainer} ${styles.contactSection}`}>        
-          <div className='flex-row justify-content-center align-items-cener'>                
-          <div className='flex-column justify-content-center align-items-cener'>
-            <div className='py-3'>
-              <h2 className='text-center'>
-                L’Cannuet: Hecho con amor para tu bebé
-              </h2>  
-            </div>
-            <div className='py-3'>
-              <p className='text-center'>
-                Descubre nuestra hermosa colección de cunas, cambiadores, ropa, decoración y más para tu pequeño cacahuate.
-              </p>  
-            </div>
-            <div className='flex-column justify-content-center align-items-center py-3'>
-              <button >Ver productos</button>  
-            </div>
-                                    
+      <div className={`${styles.contactSection}`}>   
+        <img src='images/backgrounds/contact-background.png'/>
+
+        <div className={styles['contact-description-container']}>
+          <div className={styles['brand-image-container']}>
+              <img src='images/brand/brand.png'/>
           </div>
 
-          <div>
-            <img src='../../../assets/images/homeSection.png'/>
+          <div className={styles['description-container']}>
+              <h2 className={styles['description']}>¿Te interesa alguno de nuestros productos? <strong>Escríbenos ahora.</strong></h2>
+              <img src='images/contact/contact-whatsapp.png'/>
           </div>
-        </div>
-      </div> */}
+        </div>             
+      </div>
 
       {showModal && productSelected && (
         <ProductModal product={productSelected} onClose={() => setShowModal(false)} />
