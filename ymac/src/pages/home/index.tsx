@@ -117,7 +117,7 @@ const Home = () => {
       </div>
 
 
-      <div className={`${styles.contactSection}`}>   
+      <div ref={scroll.contactSectionRef} className={`${styles.contactSection}`}>   
         <img src='images/backgrounds/contact-background.png'/>
 
         <div className={styles['contact-description-container']}>
