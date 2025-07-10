@@ -10,8 +10,7 @@
 .sectionContainer {
     scroll-margin-top: 12vh; // <= esto es lo clave
     min-height: 88vh;
-    padding-top: 6vh;
-    padding-bottom: 6vh;
+    padding-top: 6vh;    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -192,11 +191,10 @@
     }
 }
 
-.productsSection {
-    // background-color: var(--disabled);
-
+.productsSection {    
     .page-products-container {
-        min-height: 88vh;
+        min-height: 88vh;        
+        width: 100%;
 
         .page-products-title-container {
             padding-top: 8rem;
@@ -209,7 +207,7 @@
         }
 
 
-        .products-grid {
+        .products-grid {            
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
@@ -231,22 +229,39 @@
         }
     }
 
-    .most-popular-product-card {
-        height: 70vh;
-        position: relative;
+    .most-popular-product-container {
+        background-image: url('images/backgrounds/most-popular-product-background.png');
+        width: 100%;
+        min-height: 88vh;
+
         display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .most-popular-product-title-container {   
+            flex:0.3;
+            .most-popular-product-title {
+                color: var(--text-secondary);
+                
+            }
+        }
+
+        .most-popular-product-card {               
+            height: 70vh;
+            width: 85vw;
+            position: relative;
+            display: flex;
+            padding: 1rem;
+        }
     }
+
 }
 
 
 .contactSection {
     background-color: var(--disabled);
 }
-
-
-
-
-
 
 
 @media (max-width: 768px) {
