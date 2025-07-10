@@ -214,6 +214,7 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             padding: 0 1rem;
+            place-items: center;
         }
 
         @media (max-width: 1024px) {
@@ -228,6 +229,12 @@
                 grid-template-columns: repeat(1, 1fr);
             }
         }
+    }
+
+    .most-popular-product-card {
+        height: 70vh;
+        position: relative;
+        display: flex;
     }
 }
 

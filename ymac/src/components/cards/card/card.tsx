@@ -5,7 +5,7 @@ import styles from './card.module.scss'
 interface CardProps {    
   className?: string;
   children?: React.ReactNode;    
-  onClick: () => void;  
+  onClick?: () => void;  
 }
 
 const Card: React.FC<CardProps> = (props) => {

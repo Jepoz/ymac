@@ -8,6 +8,8 @@ import { ScrollContext } from '../../context/scroll-context';
 import ProductModal from '../../components/modals/product-modal/product-modal';
 import products from '../../data/products';
 import type { Product } from '../../types/product';
+import ProductDetailCard from '../../components/cards/product-detail-card/product-detail-card';
+import Card from '../../components/cards/card/card';
 // import PrimaryButton from '../../components/buttons/primary-button/primary-button';
 // import ScrollReveal from '../../components/effects/scroll-reveal/scroll-reveal';
 
@@ -100,6 +102,15 @@ const Home = () => {
                   onClick={() => selectProduct(product)}
                 />
               ))}
+          </div>
+
+          <div className={styles["most-popular-product-container"]}>
+            <div className={styles['most-popular-product-title-container']}>
+              <h1 className={styles['most-popular-product-title']}>El modelo más pedido</h1>              
+            </div>
+            <Card className={styles['most-popular-product-card']}>
+              <ProductDetailCard product={products[0]}/>
+            </Card>
           </div>
           
         </div>
