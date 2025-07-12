@@ -2,16 +2,20 @@
 $colors: (
   light: (             
     primary: #0B2238,    
-    secondary: #0053A1,
+    secondary: #0571D4,
     background: #ffffff,
     background-secondary: #B3DDFC,
     background-tertiary: #4b5563,
+    background-image: #f7f7f7,
+    hover-button: #004483,
     text: #012C55,    
     text-secondary: #f3f4f6,
     border: #e5e7eb,
     disabled: #9ca3af, // Nuevo
     error: #dc2626,
     success: #16a34a
+
+    f7f7f7
   ),
   dark: (
     primary: #0B2238,    

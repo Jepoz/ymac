@@ -8,12 +8,16 @@ interface WhatsAppButtonProps {
   text: string;  
   message?: string;
   isShoppingButton?: boolean;
+  className?: string;
 
 }
 
-const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ text, message = '', isShoppingButton }) => {
+const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ text, message = '', isShoppingButton, className }) => {
   const encodedMessage = encodeURIComponent(message);
   const url = `https://wa.me/${Constants.phoneNumber}?text=${encodedMessage}`;
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.stopPropagation(); 
+  };
 
   return (
     <Button
@@ -23,7 +27,8 @@ const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ text, message = '', isS
       rel="noopener noreferrer"
       icon={isShoppingButton ? <HiOutlineShoppingBag size={24} /> : <FaWhatsapp size={24} />}
       text={text}
-      className="whatsapp-style"
+      onClick={handleClick}
+      className={`whatsapp-style ${className}`}
     />
   );
 };

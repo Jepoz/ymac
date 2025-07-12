@@ -11,6 +11,7 @@ import type { Product } from '../../types/product';
 import ProductDetailCard from '../../components/cards/product-detail-card/product-detail-card';
 import Card from '../../components/cards/card/card';
 import Constants from '../../constants/constants';
+import FloatingWhatsappButton from '../../components/buttons/floating-whatsapp-button/floating-whatsapp-button';
 
 // import PrimaryButton from '../../components/buttons/primary-button/primary-button';
 // import ScrollReveal from '../../components/effects/scroll-reveal/scroll-reveal';
@@ -100,7 +101,7 @@ const Home = () => {
                   name={product.name}
                   description={product.description}
                   image={product.images[0]}
-                  onClick={() => console.log('test')}
+                  onClick={() => selectProduct(product)}
                 />
               ))}
           </div>
@@ -137,7 +138,7 @@ const Home = () => {
         <ProductModal product={productSelected} onClose={() => setShowModal(false)} />
       )}
 
-
+      <FloatingWhatsappButton/>
     </div>
   );
 };

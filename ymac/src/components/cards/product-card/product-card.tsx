@@ -1,6 +1,3 @@
-// import WhatsappButton from '../buttons/whatsapp-button/whatsapp-button';
-import Button from '../../buttons/button/button';
-import ShoppingBagButton from '../../buttons/shopping-bag-button/shopping-bag-button';
 import WhatsAppButton from '../../buttons/whatsapp-button/whatsapp-button';
 import Card from '../card/card';
 import styles from './product-card.module.scss';

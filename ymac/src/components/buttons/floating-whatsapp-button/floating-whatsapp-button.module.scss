@@ -1,0 +1,29 @@
+@import '../../../styles/variables';
+
+.whatsappFloatingButton {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 9999;
+
+    &::after {
+        content: '';
+        position: absolute;
+        right: -4px;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border: 12px solid transparent;
+        border-left-color: #007aff;
+        border-right: 0;
+        border-top: 0;
+        transform: rotate(45deg);
+        transition: border-left-color 0.3s ease;
+    }
+
+    &:hover {
+        &::after {
+            border-left-color: var(--hover-button);
+        }
+    }
+}

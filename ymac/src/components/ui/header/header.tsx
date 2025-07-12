@@ -28,39 +28,55 @@ const Header = () => {
   } = scroll;
 
   return (
-    <header className={styles.header}>      
-      <div className={styles.navContainer}>
-        {/* <NavLink to="/" className={styles.logo}>DeepStyle</NavLink> */}
+<header className={styles.header}>
+  <div className={styles.navContainer}>
+    {/* Imagen centrada en móvil */}
+    <div className={styles.mobileLogo}>
+      <img src="images/brand/brand-simple.png" alt="Brand" />
+    </div>
 
-        <button className={styles.menuToggle} onClick={toggleMenu}>
-          {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-        </button>
+    {/* Menú hamburguesa */}
+    <button className={styles.menuToggle} onClick={toggleMenu}>
+      {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+    </button>
 
-        <nav className={`${styles.nav} ${menuOpen ? styles.active : ''}`}>
-          <ul className={styles.navList}>
-            <li className={classNames({ [styles.active]: activeSection === 'home' })}
-                onClick={() => scrollToSection(homeSectionRef)}>              
-              Home              
-            </li>
-            <li className={classNames({ [styles.active]: activeSection === 'about' })}
-                onClick={() => scrollToSection(aboutUsSectionRef)}>              
-               Sobre nosotros              
-            </li>
-            <li>              
-              <img className={styles.brand} src='images/brand/brand-simple.png'/>
-            </li>
-            <li className={classNames({ [styles.active]: activeSection === 'products' })}
-                onClick={() => scrollToSection(productsSectionRef)}>              
-              Productos              
-            </li>
-            <li className={classNames({ [styles.active]: activeSection === 'contact' })}
-                onClick={() => scrollToSection(contactSectionRef)}>              
-              Contacto              
-            </li>            
-          </ul>
-        </nav>
-      </div>
-    </header>
+    <nav className={`${styles.nav} ${menuOpen ? styles.active : ''}`}>
+      <ul className={styles.navList}>
+        <li
+          className={classNames({ [styles.active]: activeSection === 'home' })}
+          onClick={() => scrollToSection(homeSectionRef)}
+        >
+          Home
+        </li>
+        <li
+          className={classNames({ [styles.active]: activeSection === 'about' })}
+          onClick={() => scrollToSection(aboutUsSectionRef)}
+        >
+          Sobre nosotros
+        </li>
+
+        {/* Imagen solo escritorio */}
+        <li className={styles.desktopLogo}>
+          <img className={styles.brand} src="images/brand/brand-simple.png" alt="Brand" />
+        </li>
+
+        <li
+          className={classNames({ [styles.active]: activeSection === 'products' })}
+          onClick={() => scrollToSection(productsSectionRef)}
+        >
+          Productos
+        </li>
+        <li
+          className={classNames({ [styles.active]: activeSection === 'contact' })}
+          onClick={() => scrollToSection(contactSectionRef)}
+        >
+          Contacto
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
   );
 };
 
