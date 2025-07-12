@@ -35,23 +35,14 @@
         padding: 0.5rem 1rem;
         cursor: pointer;
         color: var(--primary);
-        ;
-        // border-bottom: 2px solid var(--primary);;
         border-bottom: 2px solid transparent;
 
         .brand {
           display: flex;
           justify-content: center;
           align-items: center;
-
         }
       }
-
-      // li.active {
-      //   color: var(--primary);
-      //   font-weight: bold;
-      //   // border-bottom: 2px solid var(--primary) !important;
-      // }
     }
   }
 
@@ -105,17 +96,27 @@
       transition: left 0.3s ease;
       z-index: 1000;
 
-      &.active {
-        left: 0;
-      }
+      // ✅ Cambios aquí
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding-top: 5rem; // puedes ajustar el valor si quieres el logo visible arriba
+    }
+
+    .nav.active {
+      left: 0;
     }
 
     .navList {
       flex-direction: column;
-      height: 100%;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
+      gap: 1rem; // antes era 2rem
+      padding: 0 1.5rem;
+      width: 100%;
+    }
+
+    .navList li {
+      font-size: 2rem;
     }
   }
 }
@@ -125,7 +126,6 @@
   font-weight: bold;
   border-bottom: 2px solid var(--primary);
 }
-
 
 .menuToggle {
   display: none;
@@ -140,32 +140,16 @@
   .menuToggle {
     display: block;
     position: absolute;
-    right: 2rem;
+    right: 1.5rem;
     top: 1.5rem;
   }
 
-  .nav {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 80%;
-    height: 100vh;
-    background-color: var(--background);
-    transition: left 0.3s ease;
-    z-index: 1000;
+  .navContainer {
+    position: relative;
+    height: 9vh;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  .nav.active {
-    left: 0;
-  }
-
-  .navList {
-    flex-direction: column;
-    gap: 2rem;
-    padding: 2rem;
   }
 }
 
@@ -177,7 +161,7 @@
   display: flex;
 
   img {
-    height: 40px;
+    height: 6rem;
     object-fit: contain;
   }
 }
@@ -196,20 +180,5 @@
 
   .desktopLogo {
     display: none;
-  }
-
-  .menuToggle {
-    position: absolute;
-    right: 1.5rem;
-    top: 1.5rem;
-    z-index: 1100;
-  }
-
-  .navContainer {
-    position: relative;
-    height: 9vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 }
