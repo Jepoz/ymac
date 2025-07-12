@@ -11,6 +11,11 @@ body {
 // Clases de utilidad para las diferentes variantes
 .font-display {
   font-family: $font-display;
+
+   &-light {
+    font-weight: 300;  
+    font-style: normal;
+  }
   
   &-regular {
     font-weight: 400;
@@ -35,6 +40,11 @@ body {
 
 .font-text {
   font-family: $font-text;
+
+  &-light {
+    font-weight: 200;
+    font-style: normal;
+  }
   
   &-regular {
     font-weight: 400;
