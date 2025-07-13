@@ -8,7 +8,7 @@ interface FloatingWhatsappButtonProps {
 
 const FloatingWhatsappButton: React.FC<FloatingWhatsappButtonProps> = () => {    
   return (
-    <WhatsAppButton className={styles['whatsappFloatingButton']}  text={'¡Pide por WhatsApp!'}/>
+    <WhatsAppButton className={styles['whatsappFloatingButton']}  text={'¡Pide por WhatsApp!'} isDefaultMessage/>
   );
 };
 

@@ -52,6 +52,7 @@ const Home = () => {
             <div className='flex-column justify-content-center align-items-center py-3'>                            
               <WhatsAppButton
                 text='¡Pide por WhatsApp!'
+                isDefaultMessage                
               />
             </div>
                                     
@@ -111,7 +112,7 @@ const Home = () => {
               <h1 className={styles['most-popular-product-title']}>El modelo más pedido</h1>              
             </div>
             <Card className={styles['most-popular-product-card']}>
-              <ProductDetailCard product={products[0]}/>
+              <ProductDetailCard product={products[1]}/>
             </Card>
           </div>
           

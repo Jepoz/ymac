@@ -34,7 +34,7 @@ const ProductCard :React.FC<ProductCardProps> = props => {
         </div>
 
         <div className={styles['contact-button-container']}>          
-          <WhatsAppButton isShoppingButton text='Haz tu pedido'/>
+          <WhatsAppButton isShoppingButton text='Haz tu pedido' productName={props.name} productBrand={props.brand}/>
         </div>
       </div>    
     </Card>
