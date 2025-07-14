@@ -31,10 +31,10 @@ $colors: (
   )
 );
 
-// Función para obtener colores
-@function color($color-name, $theme: light) {
-  @return map-get(map-get($colors, $theme), $color-name);
-}
+// // Función para obtener colores
+// @function color($color-name, $theme: light) {
+//   @return map-get(map-get($colors, $theme), $color-name);
+// }
 
 // Variables CSS para temas dinámicos
 :root {
@@ -44,7 +44,7 @@ $colors: (
 }
 
 [data-theme="dark"] {
-  @each $name, $color in map-get($colors, dark) {
-    --#{$name}: #{$color};
-  }
+  // @each $name, $color in map-get($colors, dark) {
+  //   --#{$name}: #{$color};
+  // }
 }

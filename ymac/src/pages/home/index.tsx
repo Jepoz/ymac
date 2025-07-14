@@ -1,5 +1,5 @@
 
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import WhatsAppButton from '../../components/buttons/whatsapp-button/whatsapp-button';
 import ProductCard from '../../components/cards/product-card/product-card';
 import { HoverImage } from '../../components/effects/hover-image';
@@ -10,11 +10,7 @@ import products from '../../data/products';
 import type { Product } from '../../types/product';
 import ProductDetailCard from '../../components/cards/product-detail-card/product-detail-card';
 import Card from '../../components/cards/card/card';
-import Constants from '../../constants/constants';
 import FloatingWhatsappButton from '../../components/buttons/floating-whatsapp-button/floating-whatsapp-button';
-
-// import PrimaryButton from '../../components/buttons/primary-button/primary-button';
-// import ScrollReveal from '../../components/effects/scroll-reveal/scroll-reveal';
 
 const Home = () => {  
   const [showModal, setShowModal] = useState(false);

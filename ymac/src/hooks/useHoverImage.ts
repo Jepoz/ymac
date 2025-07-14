@@ -1,4 +1,3 @@
-// hooks/useHoverImage.ts
 import { useState } from 'react';
 
 type AnimationDirection = 'down' | 'up';

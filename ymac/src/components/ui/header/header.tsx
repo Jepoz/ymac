@@ -54,7 +54,7 @@ const Header = () => {
                 closeMenu();
               }}
             >
-              Home
+              Inicio
             </li>
             <li
               className={classNames({ [styles.active]: activeSection === 'about' })}
