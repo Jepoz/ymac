@@ -19,13 +19,13 @@ export const ScrollProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
   const [activeSection, setActiveSection] = useState<string>('home');
 
-const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
-  if (ref.current) {
-    const yOffset = -window.innerHeight * 0.12; // 12vh en píxeles
-    const y = ref.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
-    window.scrollTo({ top: y, behavior: 'smooth' });
-  }
-};
+  const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
+    if (ref.current) {
+      const yOffset = -window.innerHeight * 0.12; // 12vh en píxeles
+      const y = ref.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
 
 
   useEffect(() => {
@@ -38,15 +38,35 @@ const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        const visibleEntry = entries.find(entry => entry.isIntersecting && entry.intersectionRatio >= 0.5);
-        if (visibleEntry) {
-          const matchingSection = sections.find(sec => sec.ref.current === visibleEntry.target);
-          if (matchingSection) {
-            setActiveSection(matchingSection.id);
+        let bestMatch: { id: string; ratio: number } | null = null;
+
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            const section = sections.find(sec => sec.ref.current === entry.target);
+            if (!section) continue;
+
+            const ratio = entry.intersectionRatio;
+
+            // 👇 Condiciones personalizadas por sección
+            if (
+              (section.id === 'products' && ratio >= 0.2) ||
+              (section.id !== 'products' && ratio >= 0.5)
+            ) {
+              if (!bestMatch || ratio > bestMatch.ratio) {
+                bestMatch = { id: section.id, ratio };
+              }
+            }
           }
         }
+
+        if (bestMatch) {
+          console.log('Sección activa detectada:', bestMatch.id);
+          setActiveSection(bestMatch.id);
+        }
       },
-      { threshold: 0.5 }
+      {
+        threshold: Array.from({ length: 101 }, (_, i) => i / 100), // de 0.00 a 1.00
+      }
     );
 
     sections.forEach(({ ref }) => {
