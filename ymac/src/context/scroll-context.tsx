@@ -59,8 +59,7 @@ export const ScrollProvider: React.FC<{ children: React.ReactNode }> = ({ childr
           }
         }
 
-        if (bestMatch) {
-          console.log('Sección activa detectada:', bestMatch.id);
+        if (bestMatch) {          
           setActiveSection(bestMatch.id);
         }
       },

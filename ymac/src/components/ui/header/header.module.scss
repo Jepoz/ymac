@@ -123,7 +123,7 @@
 
     .nav.active {
       left: 0;
-      background-image: url('images/backgrounds/background.png'); // Ajusta si necesario
+      background-image: url('/images/backgrounds/background.png'); // Ajusta si necesario
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
@@ -132,7 +132,7 @@
     .nav.active::before {
       content: '';
       position: absolute;
-      inset: 0;      
+      inset: 0;
       z-index: -1;
     }
 
@@ -168,14 +168,14 @@
         height: 40px;
       }
     }
-    
+
   }
 
   .desktopLogo {
     display: flex;
 
     img {
-      height: 6rem;
+      height: 6vh;
       object-fit: contain;
     }
   }

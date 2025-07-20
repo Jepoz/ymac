@@ -24,13 +24,13 @@ const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ text, message = '', isD
       productName: productName,
       productBrand: productBrand,
     };
-    whatsAppMessage = formatString(Constants.productWhatsAppMessage, productValues);
+    whatsAppMessage = encodeURIComponent(formatString(Constants.productWhatsAppMessage, productValues));
   }
   else {
    whatsAppMessage = encodeURIComponent(isDefaultMessage ? Constants.defaultWhatsAppMessage : message);
   }  
 
-  const url = `https://wa.me/${Constants.phoneNumber}?text=${whatsAppMessage}`;
+  const url = `https://api.whatsapp.com/send/?phone=${Constants.phoneNumber}&text=${whatsAppMessage}`;
 
   
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {

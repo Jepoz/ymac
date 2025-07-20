@@ -1,8 +1,7 @@
-// components/ProductCard/ProductCard.tsx
 import React from "react";
 import styles from "./product-detail-card.module.scss";
 import type { Product } from "../../../types/product";
-import ShoppingBagButton from "../../buttons/shopping-bag-button/shopping-bag-button";
+import WhatsAppButton from "../../buttons/whatsapp-button/whatsapp-button";
 
 interface ProductDetailCardProps {
   product: Product;
@@ -59,10 +58,7 @@ const ProductDetailCard: React.FC<ProductDetailCardProps> = ({
             ))}
           </ul>
         </div>
-        <ShoppingBagButton
-          className={styles.orderButton}
-          text="Haz tu pedido"
-        />
+        <WhatsAppButton isShoppingButton className={styles.orderButton} text='Haz tu pedido' productName={product.name} productBrand={product.brand}/>
       </div>
     </div>
   );

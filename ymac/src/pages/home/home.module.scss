@@ -19,7 +19,7 @@
 
 //Home
 .homeSection {
-    background-image: url('images/backgrounds/home-background.png');
+    background-image: url('/images/backgrounds/home-background.png');
     max-height: 88vh;
 
     .home-container {
@@ -90,7 +90,7 @@
 
 //About us
 .aboutUsSection {
-    background-image: url('images/backgrounds/about-us-background.png');
+    background-image: url('/images/backgrounds/about-us-background.png');
     height: 88vh;
     display: flex;
 
@@ -234,7 +234,7 @@
     }
 
     .most-popular-product-container {
-        background-image: url('images/backgrounds/most-popular-product-background.png');
+        background-image: url('/images/backgrounds/most-popular-product-background.png');
         width: 100%;
         min-height: 88vh;
 
