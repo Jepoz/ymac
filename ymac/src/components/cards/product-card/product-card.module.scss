@@ -6,8 +6,12 @@
   }
 
   max-width: 20vw;  
-  height: 78vh;
-  height: 78vh;
+  
+
+  @media (min-width: 1024px) {
+    min-height: 78vh;
+  }
+  
 
   @media (max-width: 1024px) {
     min-height: 60vh;
@@ -97,6 +101,6 @@
 
   @media (max-width: 768px) {
     .product-card {
-      max-width: 80vw;
+      max-width: 80vw;      
     }
   }
