@@ -1,20 +1,17 @@
 @import '../../styles/variables';
 
-
 //General
 .homePage {
     min-height: 88vh;
-
 }
 
 .sectionContainer {
-    scroll-margin-top: 12vh; // <= esto es lo clave
+    scroll-margin-top: 12vh;
     min-height: 88vh;
     padding-top: 6vh;
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 //Home
@@ -40,7 +37,6 @@
                     max-height: 88vh;
                 }
             }
-
         }
 
         .home-title-container {
@@ -58,7 +54,6 @@
             flex-direction: column;
             height: 88vh !important;
 
-
             .home-image-container {
                 width: 100% !important;
 
@@ -70,10 +65,8 @@
                         max-width: 100%;
                         height: 54vh;
                         object-fit: contain;
-
                     }
                 }
-
             }
 
             .home-title-container {
@@ -95,13 +88,12 @@
     display: flex;
 
     .about-us-container {
-        height: 88vh !important; // <-- esto es clave para que tome el height del padre
-        width: 50vw !important; // opcional, si quieres que use todo el ancho disponible
+        height: 88vh !important;
+        width: 50vw !important;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
-
 
         .about-us-title-text {
             text-align: center;
@@ -129,64 +121,30 @@
             justify-content: end;
             align-items: center;
         }
-
     }
 
     @media (max-width: 1024px) {
         .about-us-container {
-            height: 88vh !important; // <-- esto es clave para que tome el height del padre
-            width: 80% !important; // opcional, si quieres que use todo el ancho disponible
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            align-items: center;
-
-
-            .about-us-title-text {
-                text-align: center;
-                color: var(--text-secondary);
-            }
-
-            .about-us-description-text {
-                text-align: center;
-                color: var(--text-secondary);
-            }
-
-            .about-us-description-made-by-text {
-                text-align: center;
-                color: var(--text-secondary);
-            }
+            height: 88vh !important;
+            width: 80% !important;
 
             .about-us-distributors-title {
-                text-align: center;
-                color: var(--text-secondary);
                 margin-top: 3rem;
                 margin-bottom: 5rem;
             }
 
             .about-us-distributors-images-container {
-                display: flex;
                 flex-direction: column;
-                justify-content: end;
-                align-items: center;
 
-                .caribu-brand-image-container {
-                    width: 80%;
-
-                    .caribu-brand-image {
-                        width: 100%;
-                    }
-                }
-
+                .caribu-brand-image-container,
                 .dutty-gear-brand-image-container {
                     width: 80%;
 
-                    .dutty-gear-brand-image {
+                    img {
                         width: 100%;
                     }
                 }
             }
-
         }
     }
 }
@@ -199,73 +157,78 @@
         display: flex;
         flex-direction: column;        
         align-items: center;
+        padding: 2rem 0;
 
         .page-products-title-container {            
             padding-bottom: 3rem;
 
             .page-products-title {
-
                 text-align: center;
             }
         }
-
 
         .products-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-            padding: 0 1rem;
+            padding: 0 2rem;
+            width: 80vw;
+            max-width: 1400px;
             place-items: center;
-        }
+            padding-bottom: 5rem;
 
-        @media (max-width: 1024px) {
-            .products-grid {
+            @media (max-width: 1024px) {
                 grid-template-columns: repeat(2, 1fr);
+                width: 90vw;
             }
-        }
-
-
-        @media (max-width: 768px) {
-            .products-grid {
-                grid-template-columns: repeat(1, 1fr);
-            }
-        }
-    }
-
-    .most-popular-product-container {
-        background-image: url('/images/backgrounds/most-popular-product-background.png');
-        width: 100%;
-        min-height: 88vh;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        .most-popular-product-title-container {
-            flex: 0.3;
-
-            .most-popular-product-title {
-                color: var(--text-secondary);
-
-            }
-        }
-
-        .most-popular-product-card {
-            height: 70vh;
-            width: 70vw;
-            position: relative;
-            display: flex;
-            padding: 1rem;
 
             @media (max-width: 768px) {
-                width: 80vw;
+                grid-template-columns: 1fr;
+                width: 100%;
+
+                .product-card {
+                    width: 80% !important;
+                    margin: 0 auto;
+                }
             }
 
+            @media (max-width: 480px) {
+                .product-card {
+                    width: 90% !important;
+                }
+            }
+        }
 
+        .most-popular-product-container {
+            background-image: url('/images/backgrounds/most-popular-product-background.png');
+            width: 100%;
+            min-height: 88vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .most-popular-product-title-container {
+                flex: 0.3;
+
+                .most-popular-product-title {
+                    color: var(--text-secondary);
+                }
+            }
+
+            .most-popular-product-card {
+                height: 70vh;
+                width: 70vw;
+                position: relative;
+                display: flex;
+                padding: 1rem;
+
+                @media (max-width: 768px) {
+                    width: 80vw;
+                }
+            }
         }
     }
-
 }
 
 //Contact
@@ -288,12 +251,10 @@
         width: 100%;
 
         .brand-image-container {
-            height: 100%;
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-
 
             img {
                 width: 25rem;
@@ -301,10 +262,7 @@
         }
 
         .description-container {
-            height: 100%;
-            width: 100%;
             flex: 1;
-
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -322,24 +280,22 @@
 
         @media (max-width: 768px) {
             flex-direction: column;
+
             .description-container {
                 align-items: center;
-            .description {
-                color: var(--text-secondary);
-                width: 100%;
-                padding-bottom: 4rem;
-                text-align: center;
-            }
 
-            img {
-                max-width: 30rem;
+                .description {
+                    width: 100%;
+                    text-align: center;
+                }
+
+                img {
+                    max-width: 30rem;
+                }
             }
-        }
         }
     }
 }
-
-
 
 @media (max-width: 768px) {
     .sectionContainer {
