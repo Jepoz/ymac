@@ -11,6 +11,7 @@ import type { Product } from '../../types/product';
 import ProductDetailCard from '../../components/cards/product-detail-card/product-detail-card';
 import Card from '../../components/cards/card/card';
 import FloatingWhatsappButton from '../../components/buttons/floating-whatsapp-button/floating-whatsapp-button';
+import constants from '../../constants/constants';
 
 const Home = () => {  
   const [showModal, setShowModal] = useState(false);
@@ -127,6 +128,7 @@ const Home = () => {
           <div className={styles['description-container']}>
               <h2 className={`${styles['description']} font-text-regular`}>¿Te interesa alguno de nuestros productos? <strong>Escríbenos ahora.</strong></h2>
               <img src='images/contact/contact-whatsapp.png'/>
+              <h2 className={`${styles['phone']} font-text-regular`}><strong>{constants.phoneNumber}</strong></h2>
           </div>
         </div>             
       </div>
