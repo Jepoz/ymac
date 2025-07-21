@@ -5,7 +5,6 @@ import Button from '../button/button';
 import Constants from '../../../constants/constants';
 import { formatString } from '../../../utils/format-string';
 
-
 interface WhatsAppButtonProps {
   text: string;  
   message?: string;
@@ -14,27 +13,52 @@ interface WhatsAppButtonProps {
   className?: string;
   productName?: string;
   productBrand?: string;
-
 }
 
-const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ text, message = '', isDefaultMessage = false, isShoppingButton, className, productName, productBrand }) => {
+const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ 
+  text, 
+  message = '', 
+  isDefaultMessage = false, 
+  isShoppingButton, 
+  className, 
+  productName, 
+  productBrand 
+}) => {
+  const isMobileDevice = () => {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  };
+
+  // Construir el mensaje
   let whatsAppMessage = '';
   if (!isDefaultMessage && message === '' && productName && productBrand) {
     const productValues = {
       productName: productName,
       productBrand: productBrand,
     };
-    whatsAppMessage = encodeURIComponent(formatString(Constants.productWhatsAppMessage, productValues));
+    whatsAppMessage = formatString(Constants.productWhatsAppMessage, productValues);
+  } else {
+    whatsAppMessage = isDefaultMessage ? Constants.defaultWhatsAppMessage : message;
   }
-  else {
-   whatsAppMessage = encodeURIComponent(isDefaultMessage ? Constants.defaultWhatsAppMessage : message);
-  }  
 
-  const url = `https://api.whatsapp.com/send/?phone=${Constants.phoneNumber}&text=${whatsAppMessage}`;
+  // Codificación mejorada que preserva signos de puntuación
+  const encodedMessage = encodeURIComponent(whatsAppMessage)
+    .replace(/%2C/g, ',')   // Revertir comas
+    .replace(/%3F/g, '?')   // Revertir signos de pregunta
+    .replace(/%20/g, ' ')   // Opcional: Revertir espacios (puedes dejarlos como %20)
+    .replace(/%22/g, '"')   // Revertir comillas
+    .replace(/%27/g, "'");  // Revertir apóstrofes
 
-  
+  // Construir la URL según el dispositivo
+  const url = isMobileDevice() 
+    ? `https://wa.me/${Constants.phoneNumber}?text=${encodedMessage}`
+    : `https://web.whatsapp.com/send?phone=${Constants.phoneNumber}&text=${encodedMessage}`;
+
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.stopPropagation(); 
+    if (!isMobileDevice()) {
+      window.open(url, '_blank');
+      e.preventDefault();
+    }
   };
 
   return (
