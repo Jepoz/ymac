@@ -40,4 +40,6 @@
   font-size: 24px;
   border: none;
   cursor: pointer;
+  z-index: 10000; /* Asegúrate que esté por encima */
+  color: #000; /* Color explícito */
 }
