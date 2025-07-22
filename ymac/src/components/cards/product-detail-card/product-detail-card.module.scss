@@ -3,15 +3,26 @@
 .container {
   display: flex;
   flex-direction: row;
-  gap: 20px;  
-  width: 80vw;    
+  gap: 20px;
+  width: 80vw;
+  height: 100%;
   overflow-y: auto;
+  position: relative;
+  align-items: stretch; // Cambiado para estirar los elementos
+
+  // Safari specific fix
+  @media not all and (min-resolution:.001dpcm) {
+    @supports (-webkit-appearance:none) {
+      height: auto;
+      min-height: 100%;
+    }
+  }
 
   @media (max-width: 1024px) {
     flex-direction: column;
     width: 95vw;
     height: auto;
-    max-height: 90vh;    
+    max-height: 90vh;
   }
 
   @media (max-width: 768px) {
@@ -19,44 +30,66 @@
     width: 100%;
     height: auto;
     max-height: 90vh;
-  }  
+  }
 }
 
 .main-image-container {
   flex: 1;
   display: flex;
   align-items: center;
-  justify-content: center;  
+  justify-content: center;
+  max-height: 80vh;
+  overflow: hidden;
+  position: relative;
+    
 
-  img {    
+  img {
+    max-height: calc(100% - 40px); // Resta el padding
+    max-width: calc(100% - 40px); // Resta el padding
+    width: auto;
     height: 100%;
     background-color: var(--background-image);
     object-fit: contain;
     border-radius: 15px;
+    margin: auto; // Centrado perfecto
+    
+    // Safari specific styling
+    @media not all and (min-resolution:.001dpcm) {
+      @supports (-webkit-appearance:none) {
+        max-height: calc(75vh - 40px);
+        width: auto !important;
+      }
+    }
   }
 
   @media (max-width: 1024px) {
+    max-height: 45rem;
+    padding: 15px;
+    
     img {
-      max-width: 100%;
-      max-height: 40rem;
+      max-width: calc(100% - 30px);
+      max-height: calc(45rem - 30px);
     }
   }
 
   @media (max-width: 768px) {
+    max-height: 280px;
+    padding: 10px;
+    
     img {
-      max-width: 100%;
-      max-height: 250px;
-      
+      max-width: calc(100% - 20px);
+      max-height: calc(180px - 20px);
     }
   }
 }
 
 .gallery {
-  
   display: flex;
   flex-direction: column;
   gap: 10px;
-  height: 100%;  
+  height: 100%;
+  min-width: 150px;
+  padding: 20px 20px 20px 0; // Padding uniforme menos a la derecha  
 
   img {
     width: 15rem;
@@ -67,7 +100,15 @@
     border: 2px solid transparent;
     border-radius: 8px;
     background-color: var(--background-image);
-    object-fit: contain;
+    transition: all 0.3s ease;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:hover {
+      opacity: 0.9;
+    }
   }
 
   .activeThumb {
@@ -80,7 +121,8 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.5rem;
-    height:auto;
+    height: auto;
+    padding: 15px;
 
     img {
       width: 16rem;
@@ -93,6 +135,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.5rem;
+    padding: 10px;
 
     img {
       width: 5rem;
@@ -105,23 +148,31 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;  
+  justify-content: center; // Centrado vertical
+  padding: 20px;
+  overflow-y: auto;
+  margin: auto 0; // Asegura centrado vertical  
+  height: 100%;
 
   h2 {
-    margin-top: 1rem;
+    margin-top: 0; // Eliminado margen superior
     font-size: 2.3rem;
+    color: var(--text-primary);
   }
 
   .brand {
     padding-bottom: 1rem;
     font-size: 2rem;
+    color: var(--text-secondary);
   }
-  
 
   ul {
     padding-left: 20px;
+    
     li {
       font-size: 1.7rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
     }
   }
 
@@ -129,38 +180,14 @@
     margin-top: 15px;
     cursor: pointer;
     max-width: 20rem;
+    align-self: flex-start;
   }
 
   @media (max-width: 1024px) {
     align-items: center;
     text-align: center;
-
-    .brand {
-      padding-bottom: 1rem;
-      font-size: 1.5rem;
-    }
-
-     ul {
-      padding-left: 0;
-      li {
-        font-size: 1.3rem;
-      }
-    }
-
-    .orderButton {
-      width: 100%;
-    }
-
-      h2 {
-    margin-top: 1rem;
-    font-size: 1.8rem;
-  }  
-    
-  }
-
-  @media (max-width: 768px) {
-    align-items: center;
-    text-align: center;
+    padding: 20px 10px;
+    justify-content: flex-start; // Ajuste para móvil
 
     .brand {
       padding-bottom: 1rem;
@@ -169,6 +196,7 @@
 
     ul {
       padding-left: 0;
+      
       li {
         font-size: 1.3rem;
       }
@@ -176,6 +204,48 @@
 
     .orderButton {
       width: 100%;
+      max-width: 20rem;
+      align-self: center;
+      margin-top: 20px;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .brand {
+      font-size: 1.5rem;
+    }
+
+    ul li {
+      font-size: 1.3rem;
+    }
+
+    .orderButton {
+      width: 100%;
+      margin-top: 15px;
+      max-width: 20rem;
+    }
+  }
+}
+
+// Additional Safari specific fixes
+@media not all and (min-resolution:.001dpcm) {
+  @supports (-webkit-appearance:none) {
+    .container {
+      display: -webkit-flex;
+      -webkit-flex-direction: row;
+      -webkit-align-items: stretch;
+    }
+    
+    .main-image-container {
+      -webkit-align-self: center;
+    }
+
+    .details {
+      -webkit-justify-content: center;
     }
   }
 }

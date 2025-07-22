@@ -24,6 +24,7 @@ const ProductDetailCard: React.FC<ProductDetailCardProps> = ({
   return (
     <div className={styles.container}>
       {showGallery && (
+        
         <div className={styles.gallery}>
           {product.images.map((img, index) => (
             <img
