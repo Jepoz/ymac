@@ -176,6 +176,8 @@
             max-width: 1400px;
             place-items: center;
             padding-bottom: 5rem;
+            grid-auto-rows: 1fr; // Esto hace que todas las filas tengan la misma altura
+            align-items: stretch; // Asegura que los items se estiren para llenar la celda
 
             @media (max-width: 1024px) {
                 grid-template-columns: repeat(2, 1fr);
