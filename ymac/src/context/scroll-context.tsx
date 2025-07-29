@@ -28,56 +28,64 @@ export const ScrollProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   };
 
 
-  useEffect(() => {
-    const sections = [
-      { id: 'home', ref: homeSectionRef },
-      { id: 'about', ref: aboutUsSectionRef },
-      { id: 'products', ref: productsSectionRef },
-      { id: 'contact', ref: contactSectionRef },
-    ];
+// En scroll-context.tsx
+useEffect(() => {
+  const sections = [
+    { id: 'home', ref: homeSectionRef },
+    { id: 'about', ref: aboutUsSectionRef },
+    { id: 'products', ref: productsSectionRef },
+    { id: 'contact', ref: contactSectionRef },
+  ];
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        let bestMatch: { id: string; ratio: number } | null = null;
+  const handleScroll = () => {
+    const scrollPosition = window.scrollY + (window.innerHeight * 0.3);
+    let newActiveSection = 'home';
 
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            const section = sections.find(sec => sec.ref.current === entry.target);
-            if (!section) continue;
+    sections.forEach(({ id, ref }) => {
+      if (ref.current) {
+        const { top, height } = ref.current.getBoundingClientRect();
+        const elementTop = top + window.scrollY;
+        const elementBottom = elementTop + height;
 
-            const ratio = entry.intersectionRatio;
-
-            // 👇 Condiciones personalizadas por sección
-            if (
-              (section.id === 'products' && ratio >= 0.2) ||
-              (section.id !== 'products' && ratio >= 0.5)
-            ) {
-              if (!bestMatch || ratio > bestMatch.ratio) {
-                bestMatch = { id: section.id, ratio };
-              }
-            }
-          }
+        if (scrollPosition >= elementTop && scrollPosition <= elementBottom) {
+          newActiveSection = id;
         }
-
-        if (bestMatch) {          
-          setActiveSection(bestMatch.id);
-        }
-      },
-      {
-        threshold: Array.from({ length: 101 }, (_, i) => i / 100), // de 0.00 a 1.00
       }
-    );
-
-    sections.forEach(({ ref }) => {
-      if (ref.current) observer.observe(ref.current);
     });
 
-    return () => {
-      sections.forEach(({ ref }) => {
-        if (ref.current) observer.unobserve(ref.current);
+    setActiveSection(prev => prev !== newActiveSection ? newActiveSection : prev);
+  };
+
+  // Configuración híbrida: Observer + Scroll
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const section = sections.find(sec => sec.ref.current === entry.target);
+          if (section) {
+            setActiveSection(section.id);
+          }
+        }
       });
-    };
-  }, []);
+    },
+    {
+      threshold: 0.3,
+      rootMargin: '-25% 0px -25% 0px'
+    }
+  );
+
+  sections.forEach(({ ref }) => {
+    if (ref.current) observer.observe(ref.current);
+  });
+
+  window.addEventListener('scroll', handleScroll);
+  return () => {
+    sections.forEach(({ ref }) => {
+      if (ref.current) observer.unobserve(ref.current);
+    });
+    window.removeEventListener('scroll', handleScroll);
+  };
+}, []);
 
   return (
     <ScrollContext.Provider

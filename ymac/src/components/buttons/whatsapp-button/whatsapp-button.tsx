@@ -28,49 +28,56 @@ const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   };
 
-  // Construir el mensaje
-  let whatsAppMessage = '';
-  if (!isDefaultMessage && message === '' && productName && productBrand) {
-    const productValues = {
-      productName: productName,
-      productBrand: productBrand,
-    };
-    whatsAppMessage = formatString(Constants.productWhatsAppMessage, productValues);
-  } else {
-    whatsAppMessage = isDefaultMessage ? Constants.defaultWhatsAppMessage : message;
-  }
+  // Clean phone number by removing all non-digit characters except leading +
+  const cleanPhoneNumber = Constants.phoneNumber.replace(/[^\d+]/g, '');
 
-  // Codificación mejorada que preserva signos de puntuación
-  const encodedMessage = encodeURIComponent(whatsAppMessage)
-    .replace(/%2C/g, ',')   // Revertir comas
-    .replace(/%3F/g, '?')   // Revertir signos de pregunta
-    .replace(/%20/g, ' ')   // Opcional: Revertir espacios (puedes dejarlos como %20)
-    .replace(/%22/g, '"')   // Revertir comillas
-    .replace(/%27/g, "'");  // Revertir apóstrofes
-
-  // Construir la URL según el dispositivo
-  const url = isMobileDevice() 
-    ? `https://wa.me/${Constants.phoneNumber}?text=${encodedMessage}`
-    : `https://web.whatsapp.com/send?phone=${Constants.phoneNumber}&text=${encodedMessage}`;
-
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    e.stopPropagation(); 
-    if (!isMobileDevice()) {
-      window.open(url, '_blank');
-      e.preventDefault();
+  // Build the message
+  const getWhatsAppMessage = () => {
+    if (!isDefaultMessage && !message && productName && productBrand) {
+      return formatString(Constants.productWhatsAppMessage, {
+        productName,
+        productBrand
+      });
     }
+    return isDefaultMessage ? Constants.defaultWhatsAppMessage : message;
+  };
+
+  // Encode message while preserving common punctuation
+  const encodeWhatsAppMessage = (msg: string) => {
+    return encodeURIComponent(msg)
+      .replace(/%2C/g, ',')
+      .replace(/%3F/g, '?')
+      .replace(/%22/g, '"')
+      .replace(/%27/g, "'");
+  };
+
+  const whatsAppMessage = encodeWhatsAppMessage(getWhatsAppMessage());
+  const isMobile = isMobileDevice();
+  
+  // Build the appropriate URL based on device
+  const whatsappUrl = isMobile
+    ? `https://wa.me/${cleanPhoneNumber}?text=${whatsAppMessage}`
+    : `https://web.whatsapp.com/send?phone=${cleanPhoneNumber}&text=${whatsAppMessage}`;
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    console.log('whatsappUrl', whatsappUrl)
+    if (!isMobile) {
+      e.preventDefault();
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    }
+    // For mobile devices, let the default anchor behavior handle it
   };
 
   return (
     <Button
       as="a"
-      href={url}
+      href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
       icon={isShoppingButton ? <HiOutlineShoppingBag size={24} /> : <FaWhatsapp size={24} />}
       text={text}
       onClick={handleClick}
-      className={`whatsapp-style ${className}`}
+      className={`whatsapp-button ${className || ''}`}
     />
   );
 };
